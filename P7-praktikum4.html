@@ -79,6 +79,64 @@
         }
     });
 
+    // Event listener saat submit formulir
+    form.addEventListener('submit', (e) => {
+        // Memotong pengiriman form bawaan (mencegah reload halaman)
+        e.preventDefault();
+
+        let isValid = true;
+
+        // 1. Validasi Nama Lengkap menggunakan checkValidity()
+        const errorFullname = document.getElementById('error-fullname');
+        if (!fullnameInput.checkValidity()) {
+            showError(fullnameInput, errorFullname, 'Nama lengkap wajib diisi (minimal 3 karakter).');
+            isValid = false;
+        } else {
+            clearError(fullnameInput, errorFullname);
+        }
+
+        // 2. Validasi Email menggunakan properti validity (valueMissing & typeMismatch)
+        const errorEmail = document.getElementById('error-email');
+        if (emailInput.validity.valueMissing) {
+            showError(emailInput, errorEmail, 'Alamat email wajib diisi.');
+            isValid = false;
+        } else if (emailInput.validity.typeMismatch) {
+            showError(emailInput, errorEmail, 'Format penulisan email tidak sesuai.');
+            isValid = false;
+        } else {
+            clearError(emailInput, errorEmail);
+        }
+
+        // 3. Validasi Kata Sandi
+        const errorPassword = document.getElementById('error-password');
+        if (!passwordInput.checkValidity()) {
+            showError(passwordInput, errorPassword, 'Kata sandi minimal terdiri dari 6 karakter.');
+            isValid = false;
+        } else {
+            clearError(passwordInput, errorPassword);
+        }
+
+        // 4. Validasi Kustom Konfirmasi Kata Sandi
+        const errorConfirm = document.getElementById('error-confirm-password');
+        if (confirmPasswordInput.value === '' || confirmPasswordInput.value !== passwordInput.value) {
+            showError(confirmPasswordInput, errorConfirm, 'Konfirmasi kata sandi harus sama dengan kata sandi.');
+            isValid = false;
+        } else {
+            clearError(confirmPasswordInput, errorConfirm);
+        }
+
+        // 5. Keputusan Hasil Validasi
+        if (isValid) {
+            alert('Pendaftaran Berhasil! Seluruh data formulir telah valid.');
+            form.reset();
+
+            // Membersihkan kelas penanda sukses pada tampilan
+            [fullnameInput, emailInput, passwordInput, confirmPasswordInput].forEach(el => {
+                el.classList.remove('input-success');
+            });
+        }
+    });
+
   </script>
 </body>
 </html>
