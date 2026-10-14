@@ -29,6 +29,31 @@
 
         console.log('Title Element:', titleEl);
         console.log('Description Element:', descEl);
+        
+    // 2. Perbandingan HTMLCollection (Live) vs NodeList (Static)
+        const liveCollection = document.getElementsByClassName('item');
+        const staticNodeList = document.querySelectorAll('.item');
+
+
+        // Cetak jumlah elemen awal
+        console.log('Jumlah awal HTMLCollection:', liveCollection.length); // Output: 3
+        console.log('Jumlah awal NodeList:', staticNodeList.length);       // Output: 3
+
+
+        // Menambahkan elemen <li> baru ke dalam DOM secara dinamis
+        const ulList = document.getElementById('course-list');
+        const newLi = document.createElement('li');
+        newLi.className = 'item';
+        newLi.textContent = 'Jaringan Komputer';
+
+
+        ulList.appendChild(newLi); // Elemen baru dimasukkan ke halaman
+
+
+        // Membuktikan sifat Live vs Static setelah penambahan elemen
+        console.log('Jumlah setelah penambahan (HTMLCollection):', liveCollection.length); // Output: 4 (Live/Otomatis update)
+        console.log('Jumlah setelah penambahan (NodeList):', staticNodeList.length);       // Output: 3 (Static/Tetap sesuai snapshot awal)
+        
 
   </script>
 </body>
