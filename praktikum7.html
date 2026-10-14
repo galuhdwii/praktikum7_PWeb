@@ -57,11 +57,19 @@
     // 3. Navigasi Node
         const firstItem = ulList.firstElementChild;
 
-
         console.log('Elemen pertama dalam daftar:', firstItem.textContent);
         console.log('Parent node dari UL:', ulList.parentNode);
         console.log('Sibling berikutnya dari elemen pertama:', firstItem.nextElementSibling.textContent);
         
+    // 4. Penanganan Null Reference Error
+        const missingEl = document.getElementById('not-exist');
+
+
+        if (missingEl === null) {
+            console.warn('Elemen "not-exist" tidak ditemukan dalam dokumen DOM.');
+        } else {
+            console.log(missingEl.textContent);
+        }
   </script>
 </body>
 </html>
