@@ -32,6 +32,55 @@
 
   <script>
     // Kode JavaScript akan ditulis di sini secara bertahap
+    // Langkah 2
+    const taskInput = document.getElementById('task-input');
+    const btnAdd = document.getElementById('btn-add');
+    const todoList = document.getElementById('todo-list');
+
+
+    // 1. Fungsi Pembuatan Node Dinamis
+    function addTask() {
+        const taskText = taskInput.value.trim();
+
+
+        // Validasi input kosong
+        if (taskText === '') {
+            alert('Teks tugas tidak boleh kosong!');
+            return;
+        }
+
+
+        // Membuat elemen LI baru secara programatis
+        const li = document.createElement('li');
+        li.className = 'todo-item';
+
+
+        // Mengisi struktur internal node baru
+        li.innerHTML = `
+            <span>${taskText}</span>
+            <div class="action-btns">
+                <button class="btn-complete">Selesai</button>
+                <button class="btn-delete">Hapus</button>
+            </div>
+        `;
+
+
+        // Menyisipkan node baru ke dalam hirarki DOM (appendChild)
+        todoList.appendChild(li);
+
+
+        // Reset bidang input teks dan fokuskan kembali
+        taskInput.value = '';
+        taskInput.focus();
+    }
+
+
+    // Event listener untuk tombol Tambah dan tombol Enter
+    btnAdd.addEventListener('click', addTask);
+    taskInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') addTask();
+    });
+
   </script>
 </body>
 </html>
