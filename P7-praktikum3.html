@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Praktikum 1.1 - Event Handling</title>
+  <style>
+      .box-parent { padding: 20px; background-color: #e0e0e0; border: 1px solid #ccc; }
+      .box-child { padding: 15px; background-color: #4caf50; color: white; cursor: pointer; }
+      .interactive-area { margin-top: 15px; padding: 10px; border: 1px dashed #666; }
+      .active { background-color: #ff9800; }
+  </style>
+</head>
+<body>
+
+  <h2>Demonstrasi Propagasi dan Manajemen Peristiwa</h2>
+
+  <!-- Skenario Event Bubbling -->
+  <div id="parent-box" class="box-parent">
+      Elemen Induk (Parent)
+      <div id="child-box" class="box-child">
+          Elemen Anak (Klik di sini)
+      </div>
+  </div>
+
+  <br>
+
+  <!-- Skenario Mouse & Keyboard Event -->
+  <div id="target-area" class="interactive-area">
+      Arahkan kursor ke sini (*mouseover* / *mouseout*)
+  </div>
+
+  <br>
+
+  <input type="text" id="text-input" placeholder="Ketik sesuatu di sini...">
+  <p>Status tombol: <span id="key-output">-</span></p>
+
+  <!-- Skenario Prevent Default -->
+  <a id="custom-link" href="https://pnc.ac.id">Kunjungi Website (Aksi Bawaan Dibatalkan)</a>
+
+  <script>
+    // Kode JavaScript akan ditulis di sini secara bertahap
+  </script>
+</body>
+</html>
