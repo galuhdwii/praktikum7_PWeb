@@ -69,6 +69,20 @@
             keyOutput.textContent = `Tombol diketik: ${e.key} (Code: ${e.code})`;
         });
 
+    // 4. Propagasi Event (Bubbling & stopPropagation)
+        const parentBox = document.getElementById('parent-box');
+        const childBox = document.getElementById('child-box');
+
+        parentBox.addEventListener('click', () => {
+            console.log('Event Triggered: Parent Box Clicked!');
+        });
+
+        childBox.addEventListener('click', (e) => {
+            console.log('Event Triggered: Child Box Clicked!');
+
+            // e.stopPropagation(); // Akan diaktifkan pada pengujian kedua
+        });
+
   </script>
 </body>
 </html>
