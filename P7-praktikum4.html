@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Praktikum 1.2 - Validasi Form Sisi Klien</title>
+  <style>
+      .form-group { margin-bottom: 15px; }
+      .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+      .form-group input { width: 100%; padding: 8px; box-sizing: border-box; }
+      .error-message { color: #d9534f; font-size: 0.85em; margin-top: 5px; display: none; }
+      .input-error { border: 1px solid #d9534f; }
+      .input-success { border: 1px solid #5cb85c; }
+      .btn-submit { padding: 10px 15px; background-color: #0275d8; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h2>Formulir Pendaftaran Akun</h2>
+
+  <!-- Atribut novalidate dimanfaatkan untuk mematikan pesan balon bawaan browser -->
+  <form id="registration-form" novalidate>
+      <div class="form-group">
+          <label for="fullname">Nama Lengkap:</label>
+          <input type="text" id="fullname" required minlength="3">
+          <div class="error-message" id="error-fullname">Nama lengkap wajib diisi (minimal 3 karakter).</div>
+      </div>
+
+      <div class="form-group">
+          <label for="email">Alamat Email:</label>
+          <input type="email" id="email" required>
+          <div class="error-message" id="error-email">Format alamat email tidak valid.</div>
+      </div>
+
+      <div class="form-group">
+          <label for="password">Kata Sandi:</label>
+          <input type="password" id="password" required minlength="6">
+          <div class="error-message" id="error-password">Kata sandi minimal 6 karakter.</div>
+      </div>
+
+      <div class="form-group">
+          <label for="confirm-password">Konfirmasi Kata Sandi:</label>
+          <input type="password" id="confirm-password" required>
+          <div class="error-message" id="error-confirm-password">Konfirmasi kata sandi tidak cocok.</div>
+      </div>
+
+      <button type="submit" class="btn-submit">Daftar Akun</button>
+  </form>
+
+  <script>
+    // Kode JavaScript akan ditulis di sini secara bertahap
+  </script>
+</body>
+</html>
