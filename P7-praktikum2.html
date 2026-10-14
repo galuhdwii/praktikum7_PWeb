@@ -45,6 +45,7 @@
   <!-- Tombol kontrol interaktif -->
   <button class="btn" onclick="updateContent()">Ubah Konten</button>
   <button class="btn" onclick="updateAttributes()">Ganti Foto & Tautan</button>
+  <button class="btn" onclick="toggleTheme()">Saklar Tema (ClassList Toggle)</button>
 
 
   <script>
@@ -66,20 +67,24 @@
             const avatarEl = document.getElementById('avatar');
             const linkEl = document.getElementById('profile-link');
 
-
             // Memanipulasi atribut HTML dengan setAttribute
             avatarEl.setAttribute('src', 'https://via.placeholder.com/100/0000FF/808080?text=Adlan');
             avatarEl.setAttribute('alt', 'Foto Profil Adlan');
 
-
             linkEl.setAttribute('href', 'https://pnc.ac.id');
             linkEl.textContent = 'Kunjungi Website PNC';
-
 
             // Manipulasi langsung properti style
             avatarEl.style.border = '3px solid #3498db';
         }
+    
+    //langkah 4
+        function toggleTheme() {
+            const cardEl = document.getElementById('profile-card');
 
+            // Mengaktifkan / mematikan kelas 'dark-mode' secara dinamis
+            cardEl.classList.toggle('dark-mode');
+        }
   </script>
 </body>
 </html>
