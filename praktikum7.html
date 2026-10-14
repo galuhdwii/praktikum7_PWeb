@@ -29,7 +29,7 @@
 
         console.log('Title Element:', titleEl);
         console.log('Description Element:', descEl);
-        
+
     // 2. Perbandingan HTMLCollection (Live) vs NodeList (Static)
         const liveCollection = document.getElementsByClassName('item');
         const staticNodeList = document.querySelectorAll('.item');
@@ -54,7 +54,14 @@
         console.log('Jumlah setelah penambahan (HTMLCollection):', liveCollection.length); // Output: 4 (Live/Otomatis update)
         console.log('Jumlah setelah penambahan (NodeList):', staticNodeList.length);       // Output: 3 (Static/Tetap sesuai snapshot awal)
         
+    // 3. Navigasi Node
+        const firstItem = ulList.firstElementChild;
 
+
+        console.log('Elemen pertama dalam daftar:', firstItem.textContent);
+        console.log('Parent node dari UL:', ulList.parentNode);
+        console.log('Sibling berikutnya dari elemen pertama:', firstItem.nextElementSibling.textContent);
+        
   </script>
 </body>
 </html>
