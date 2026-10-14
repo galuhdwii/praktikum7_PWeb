@@ -69,6 +69,16 @@
         errorEl.style.display = 'none';
     }
 
+    // Validasi real-time saat pengguna mengetik (Event 'input')
+    confirmPasswordInput.addEventListener('input', () => {
+        const errorEl = document.getElementById('error-confirm-password');
+        if (confirmPasswordInput.value !== passwordInput.value) {
+            showError(confirmPasswordInput, errorEl, 'Konfirmasi kata sandi tidak cocok.');
+        } else {
+            clearError(confirmPasswordInput, errorEl);
+        }
+    });
+
   </script>
 </body>
 </html>
