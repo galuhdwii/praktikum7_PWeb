@@ -39,6 +39,16 @@
 
   <script>
     // Kode JavaScript akan ditulis di sini secara bertahap
+    // 1. Pemuatan Dokumen
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('1. DOMContentLoaded: Struktur DOM selesai dimuat.');
+        });
+
+
+        window.addEventListener('load', () => {
+            console.log('2. Window Load: Seluruh sumber daya (gambar/style) selesai dimuat.');
+        });
+
   </script>
 </body>
 </html>
