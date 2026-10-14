@@ -37,11 +37,9 @@
     const btnAdd = document.getElementById('btn-add');
     const todoList = document.getElementById('todo-list');
 
-
     // 1. Fungsi Pembuatan Node Dinamis
     function addTask() {
         const taskText = taskInput.value.trim();
-
 
         // Validasi input kosong
         if (taskText === '') {
@@ -49,11 +47,9 @@
             return;
         }
 
-
         // Membuat elemen LI baru secara programatis
         const li = document.createElement('li');
         li.className = 'todo-item';
-
 
         // Mengisi struktur internal node baru
         li.innerHTML = `
@@ -64,22 +60,41 @@
             </div>
         `;
 
-
         // Menyisipkan node baru ke dalam hirarki DOM (appendChild)
         todoList.appendChild(li);
-
 
         // Reset bidang input teks dan fokuskan kembali
         taskInput.value = '';
         taskInput.focus();
     }
 
+    // 2. Penerapan Event Delegation pada Elemen Induk (ul#todo-list)
+    todoList.addEventListener('click', (e) => {
+        const target = e.target;
 
-    // Event listener untuk tombol Tambah dan tombol Enter
-    btnAdd.addEventListener('click', addTask);
-    taskInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') addTask();
+
+        // Memeriksa apakah elemen yang diklik adalah tombol Selesai
+        if (target.classList.contains('btn-complete')) {
+            const parentLi = target.closest('.todo-item');
+            parentLi.classList.toggle('completed');
+        }
+
+
+        // Memeriksa apakah elemen yang diklik adalah tombol Hapus
+        if (target.classList.contains('btn-delete')) {
+            const parentLi = target.closest('.todo-item');
+            
+            // Menghapus node secara langsung dari struktur DOM
+            parentLi.remove(); 
+            // Alternatif sintaks tradisional: todoList.removeChild(parentLi);
+        }
     });
+
+        // Event listener untuk tombol Tambah dan tombol Enter
+        btnAdd.addEventListener('click', addTask);
+        taskInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') addTask();
+        });
 
   </script>
 </body>
