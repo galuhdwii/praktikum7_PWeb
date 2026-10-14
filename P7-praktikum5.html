@@ -102,6 +102,13 @@
         }
     }
 
+    btnStart.addEventListener('click', () => {
+    // Cegah pembuatan multiple timer jika animasi sedang berjalan
+    if (timerId === null && position < maxPosition) {
+        timerId = setInterval(step, 20); // Jalankan fungsi step setiap 20ms
+        }
+    });
+
   </script>
 </body>
 </html>
