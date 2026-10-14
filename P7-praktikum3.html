@@ -44,9 +44,29 @@
             console.log('1. DOMContentLoaded: Struktur DOM selesai dimuat.');
         });
 
-
         window.addEventListener('load', () => {
             console.log('2. Window Load: Seluruh sumber daya (gambar/style) selesai dimuat.');
+        });
+
+    // 2. Mouse Events (mouseover & mouseout)
+        const targetArea = document.getElementById('target-area');
+
+        targetArea.addEventListener('mouseover', () => {
+            targetArea.classList.add('active');
+            targetArea.textContent = 'Kursor berada di dalam area!';
+        });
+
+        targetArea.addEventListener('mouseout', () => {
+            targetArea.classList.remove('active');
+            targetArea.textContent = 'Arahkan kursor ke sini (*mouseover* / *mouseout*)';
+        });
+
+        // 3. Keyboard Events (keydown)
+        const textInput = document.getElementById('text-input');
+        const keyOutput = document.getElementById('key-output');
+
+        textInput.addEventListener('keydown', (e) => {
+            keyOutput.textContent = `Tombol diketik: ${e.key} (Code: ${e.code})`;
         });
 
   </script>
