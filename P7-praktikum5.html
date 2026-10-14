@@ -116,6 +116,19 @@
         }
     });
 
+    btnReset.addEventListener('click', () => {
+    // Hentikan timer dan kembalikan variabel ke nilai awal
+    if (timerId !== null) {
+        clearInterval(timerId);
+        timerId = null;
+        }
+    position = 0;
+    animateBox.style.left = '0px';
+    progressBar.style.width = '0%';
+    progressBar.style.backgroundColor = '#4caf50';
+    btnStart.disabled = false;
+    });
+
   </script>
 </body>
 </html>
