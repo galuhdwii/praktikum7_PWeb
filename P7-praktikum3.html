@@ -83,6 +83,15 @@
             // e.stopPropagation(); // Akan diaktifkan pada pengujian kedua
         });
 
+    // 5. Prevent Default Action
+        const customLink = document.getElementById('custom-link');
+
+
+        customLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Aksi navigasi bawaan dibatalkan menggunakan e.preventDefault()!');
+        });
+
   </script>
 </body>
 </html>
