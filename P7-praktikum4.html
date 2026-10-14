@@ -48,6 +48,27 @@
 
   <script>
     // Kode JavaScript akan ditulis di sini secara bertahap
+    const form = document.getElementById('registration-form');
+    const fullnameInput = document.getElementById('fullname');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+
+    // Fungsi pembantu untuk menampilkan pesan kesalahan dan memberi bingkai merah
+    function showError(inputEl, errorEl, message) {
+        inputEl.classList.add('input-error');
+        inputEl.classList.remove('input-success');
+        errorEl.textContent = message;
+        errorEl.style.display = 'block';
+    }
+
+    // Fungsi pembantu untuk membersihkan pesan kesalahan dan memberi bingkai hijau
+    function clearError(inputEl, errorEl) {
+        inputEl.classList.remove('input-error');
+        inputEl.classList.add('input-success');
+        errorEl.style.display = 'none';
+    }
+
   </script>
 </body>
 </html>
