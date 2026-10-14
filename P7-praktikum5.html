@@ -71,6 +71,37 @@
 
   <script>
     // Kode JavaScript akan ditulis di sini secara bertahap
+    // Langkah 2
+    const progressBar = document.getElementById('progress');
+    const animateBox = document.getElementById('animate-box');
+    const btnStart = document.getElementById('btn-start');
+    const btnPause = document.getElementById('btn-pause');
+    const btnReset = document.getElementById('btn-reset');
+
+    let timerId = null;
+    let position = 0; // Posisi awal dalam piksel (0 - 460px)
+    const maxPosition = 460;
+
+    // Fungsi yang dieksekusi secara berulang oleh timer
+    function step() {
+        if (position >= maxPosition) {
+            // Hentikan timer jika animasi sudah mencapai batas
+            clearInterval(timerId);
+            timerId = null;
+            progressBar.style.backgroundColor = '#2196F3'; // Ubah warna ke biru saat selesai
+            btnStart.disabled = true;
+        } else {
+            position += 4;
+
+            // Perbarui posisi elemen box
+            animateBox.style.left = position + 'px';
+
+            // Perbarui persentase progress bar
+            const percentage = Math.round((position / maxPosition) * 100);
+            progressBar.style.width = percentage + '%';
+        }
+    }
+
   </script>
 </body>
 </html>
