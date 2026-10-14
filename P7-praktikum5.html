@@ -109,6 +109,13 @@
         }
     });
 
+    btnPause.addEventListener('click', () => {
+    if (timerId !== null) {
+        clearInterval(timerId); // Cleanup timer saat di-pause
+        timerId = null; // Kembalikan penanda timer ke null
+        }
+    });
+
   </script>
 </body>
 </html>
